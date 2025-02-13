@@ -11,11 +11,6 @@ nltk.download('punkt')  # For tokenization
 nltk.download('stopwords')  # For stopword removal
 nltk.download('averaged_perceptron_tagger')  # For POS tagging
 
-# Download necessary NLTK data
-nltk.download('punkt')  # For tokenization
-nltk.download('stopwords')  # For stopword removal
-nltk.download('averaged_perceptron_tagger')  # For POS tagging
-
 # Define chatbot functions
 def clean_text(text):
     words = word_tokenize(text)
