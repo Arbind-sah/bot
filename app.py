@@ -6,10 +6,7 @@ from nltk.stem import PorterStemmer
 from nltk import pos_tag
 import streamlit as st
 
-# Download necessary NLTK data
-nltk.download('punkt')  # For tokenization
-nltk.download('stopwords')  # For stopword removal
-nltk.download('averaged_perceptron_tagger')  # For POS tagging
+nltk.download('all')
 
 # Define chatbot functions
 def clean_text(text):
