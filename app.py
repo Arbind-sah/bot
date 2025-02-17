@@ -130,6 +130,12 @@ def start_chatbot():
 
 
 
+if __name__ == "__main__":
+    start_chatbot()
+
+
+
+    
 #footer
 st.markdown("""
 <style>
@@ -153,6 +159,3 @@ st.markdown('''<p class="footer">Made with ❤️ by Arbind
 
 
 
-
-if __name__ == "__main__":
-    start_chatbot()
