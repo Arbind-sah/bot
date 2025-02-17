@@ -6,9 +6,8 @@ from nltk import pos_tag
 import streamlit as st
 
 # Download only necessary NLTK data
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('averaged_perceptron_tagger')
+nltk.download('all')
+
 
 # Define chatbot functions
 def clean_text(text):
