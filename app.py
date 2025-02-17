@@ -128,9 +128,7 @@ def start_chatbot():
         </style>
     """, unsafe_allow_html=True)
 
-
-    st.write.markdown("---")
-    st.write.markdown("© 2023 Text Mining Chatbot. All rights reserved.")
+    
 
 if __name__ == "__main__":
     start_chatbot()
