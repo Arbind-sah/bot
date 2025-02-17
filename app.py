@@ -128,7 +128,31 @@ def start_chatbot():
         </style>
     """, unsafe_allow_html=True)
 
-    
+
+
+#footer
+st.markdown("""
+<style>
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
+st.markdown('''<p class="footer">Made with ❤️ by Arbind
+    <a style="color:white;" href="https://www.linkedin.com/in/arbind007/" target="_blank">Arbind</a></p>''', 
+    unsafe_allow_html=True)
+
+
+
+
+
 
 if __name__ == "__main__":
     start_chatbot()
