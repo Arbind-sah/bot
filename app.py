@@ -4,11 +4,25 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from nltk import pos_tag
 import streamlit as st
+import pickle
 
 # Download only necessary NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
 nltk.download('averaged_perceptron_tagger')
+
+
+
+
+
+#load the model
+
+model = pickle.load(open('salary_model.pkl', 'rb'))
+def predict_salary(experience, test_score, interview_score):
+    input_features = [[experience, test_score, interview_score]]
+    return model.predict(input_features)[0]
+
+
 
 # Define chatbot functions
 def clean_text(text):
@@ -40,6 +54,7 @@ def respond(text):
     greetings = ["hi", "hello", "hey", "hola", "greetings", "what's up", "sup", "yo"]
     if any(greeting in text.lower() for greeting in greetings):
         return "Hello! How can I assist you today?"
+   
     
     farewells = ["bye", "goodbye", "see you", "take care", "later", "farewell"]
     if any(farewell in text.lower() for farewell in farewells):
@@ -90,8 +105,15 @@ def start_chatbot():
 
     if user_input:
         st.session_state['questions'].append(user_input)
-        response = respond(user_input)
-        st.write(f"🤖 **Chatbot:** {response}")
+        if "age" in user_input.lower():
+            experience = st.number_input("Enter your experience in years:", min_value=0, max_value=50, step=1)
+            test_score = st.number_input("Enter your test score:", min_value=0, max_value=100, step=1)
+            interview_score = st.number_input("Enter your interview score:", min_value=0, max_value=100, step=1)
+            if st.button("Predict Salary"):
+                salary = predict_salary(experience, test_score, interview_score)
+                st.write(f"Predicted Salary: ${salary}")
+            
+        
 
     st.sidebar.title("User Questions")
     for question in st.session_state['questions']:
