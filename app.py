@@ -144,7 +144,7 @@ st.markdown("""
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #4CAF50;
+    background-color:red;
     color: white;
     text-align: center;
     padding: 10px;
@@ -152,6 +152,6 @@ st.markdown("""
 </style>
 
 <div class="footer">
-    <p>Developed with ❤️ by <a style='color: white;' href="https://www.streamlit.io" target="_blank">Streamlit</a></p>
+    <p>Developed with ❤️ by <a style='color: white;' href="https://www.streamlit.io" target="_blank">Arbind sah</a></p>
 </div>
 """, unsafe_allow_html=True)
