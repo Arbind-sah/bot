@@ -135,7 +135,7 @@ if __name__ == "__main__":
 
 
 
-    
+
 #footer
 st.markdown("""
 <style>
@@ -150,12 +150,8 @@ st.markdown("""
     padding: 10px;
 }
 </style>
+
+<div class="footer">
+    <p>Developed with ❤️ by <a style='color: white;' href="https://www.streamlit.io" target="_blank">Streamlit</a></p>
+</div>
 """, unsafe_allow_html=True)
-st.markdown('''<p class="footer">Made with ❤️ by Arbind
-    <a style="color:white;" href="https://www.linkedin.com/in/arbind007/" target="_blank">Arbind</a></p>''', 
-    unsafe_allow_html=True)
-
-
-
-
-
