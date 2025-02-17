@@ -56,76 +56,77 @@ def respond(text):
     return "I'm not sure how to respond to that. Could you rephrase?"
 
 
-    def start_chatbot():
-        st.set_page_config(page_title="Text Mining Chatbot", page_icon="🤖")
-        st.title("🤖 Text Mining Chatbot")
-        
-        st.markdown("""
-            <style>
-            .main {
-                background-color: #f0f2f6;
-            }
-            .stTextInput > div > div > input {
-                border: 2px solid #4CAF50;
-                border-radius: 10px;
-                padding: 10px;
-            }
-            .stButton > button {
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                border-radius: 10px;
-                padding: 10px 20px;
-                font-size: 16px;
-            }
-            </style>
-        """, unsafe_allow_html=True)
-        
-        st.write("### Say something to the chatbot:")
-        user_input = st.text_input("", placeholder="Type your message here...")
 
-        if 'questions' not in st.session_state:
-            st.session_state['questions'] = []
+def start_chatbot():
+    st.set_page_config(page_title="Text Mining Chatbot", page_icon="🤖")
+    st.title("🤖 Text Mining Chatbot")
+    
+    st.markdown("""
+        <style>
+        .main {
+            background-color: #f0f2f6;
+        }
+        .stTextInput > div > div > input {
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .stButton > button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
+    st.write("### Say something to the chatbot:")
+    user_input = st.text_input("", placeholder="Type your message here...")
 
-        if user_input:
-            st.session_state['questions'].append(user_input)
-            response = respond(user_input)
-            st.write(f"🤖 **Chatbot:** {response}")
+    if 'questions' not in st.session_state:
+        st.session_state['questions'] = []
 
-        st.sidebar.title("User Questions")
-        for question in st.session_state['questions']:
-            st.sidebar.write(question)
-        
-        st.sidebar.title("Navigation")
-        tab = st.sidebar.radio("Go to", ["🏠 Home", "⚙️ Settings", "ℹ️ About"])
+    if user_input:
+        st.session_state['questions'].append(user_input)
+        response = respond(user_input)
+        st.write(f"🤖 **Chatbot:** {response}")
 
-        if tab == "🏠 Home":
-            st.sidebar.markdown("### Welcome to the Home tab!")
-            st.sidebar.markdown("This is the main area where you can interact with the chatbot.")
+    st.sidebar.title("User Questions")
+    for question in st.session_state['questions']:
+        st.sidebar.write(question)
+    
+    st.sidebar.title("Navigation")
+    tab = st.sidebar.radio("Go to", ["Home", "Settings", "About"])
 
-        elif tab == "⚙️ Settings":
-            st.sidebar.markdown("### Settings")
-            st.sidebar.markdown("Here you can adjust the settings of the chatbot.")
+    if tab == "Home":
+        st.sidebar.markdown("### Welcome to the Home tab!")
+        st.sidebar.markdown("This is the main area where you can interact with the chatbot.")
 
-        elif tab == "ℹ️ About":
-            st.sidebar.markdown("### About")
-            st.sidebar.markdown("This chatbot is designed to help you with text mining tasks.")
+    elif tab == "Settings":
+        st.sidebar.markdown("### Settings")
+        st.sidebar.markdown("Here you can adjust the settings of the chatbot.")
 
-        st.sidebar.markdown("""
-            <style>
-            .sidebar .sidebar-content {
-                background-color: #f0f2f6;
-                padding: 20px;
-                border-radius: 10px;
-            }
-            .sidebar .sidebar-content h3 {
-                color: #4CAF50;
-            }
-            .sidebar .sidebar-content p {
-                color: #333;
-            }
-            </style>
-        """, unsafe_allow_html=True)
+    elif tab == "About":
+        st.sidebar.markdown("### About")
+        st.sidebar.markdown("This chatbot is designed to help you with text mining tasks.")
 
-    if __name__ == "__main__":
-        start_chatbot()
+    st.sidebar.markdown("""
+        <style>
+        .sidebar .sidebar-content {
+            background-color: #f0f2f6;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .sidebar .sidebar-content h3 {
+            color: #4CAF50;
+        }
+        .sidebar .sidebar-content p {
+            color: #333;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
+if __name__ == "__main__":
+    start_chatbot()
