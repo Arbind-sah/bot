@@ -13,7 +13,6 @@ nltk.download('averaged_perceptron_tagger', quiet=True)
 nltk.download('wordnet', quiet=True)
 nltk.download('omw-1.4', quiet=True)
 
-
 def clean_text(text):
     words = word_tokenize(text)
     stop_words = set(stopwords.words('english'))
